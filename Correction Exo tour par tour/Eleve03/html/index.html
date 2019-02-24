@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <title>FPS au tour par tour</title>
+</head>
+
+<body>
+
+
+  <main id="contenu">
+
+    <header>
+      <h1>Jeu en tour par tour <br> DBZ Sangoku VS Freezer</h1>
+    </header>
+
+    <section id="joueur1" class="joueurClass">
+      <p><img src="../img/perso1.png" height="200px"></p>
+      <p>"Santé : "</p>
+		<span id="recapSante1" class="recapSanteClass"></span>
+      <p>"Dégats arme : "</p>
+		<span id="recapArme1" class="recapArmeClass"></span>
+      <p>"Posture: "</p>
+		<span id="recapPosture1" class="recapPostureClass"></span>
+    </section>
+
+
+    <section id="joueur2" class="joueurClass">
+      <p><img src="../img/perso2.png" height="200px"></p>
+      <p>"Santé : "</p>
+		<span id="recapSante2" class="recapSanteClass"></span>
+      <p>"Dégats arme : "</p>
+		<span id="recapArme2" class="recapArmeClass"></span>
+      <p>"Posture: "</p>
+		<span id="recapPosture2" class="recapPostureClass"></span>
+    </section>
+
+    <section id="map"></section>
+
+  </main>
+
+
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="../js/util.js"></script>
+  <script src="../js/perso.js"></script>
+  <script src="../js/arme.js"></script>
+  <script src="../js/map.js"></script>
+  <script src="../js/game.js"></script>
+  <script src="../js/fight.js"></script>
+
+</body>
+
+</html>

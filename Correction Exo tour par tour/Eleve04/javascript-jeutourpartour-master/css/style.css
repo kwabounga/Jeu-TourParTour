@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+.row .col {
+    padding: 0;
+}
+
+.row {
+    margin: 0;
+}
+
+#BoardSection {
+    max-width: 45%
+}
+
+.cell-weapon-Poing {
+    background-image: url(../images/punch.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.cell-weapon-Axe {
+    background-image: url(../images/axe.png);
+    background-size: 100%;
+    background-position: 50% 50%;
+}
+
+.cell-weapon-Hoe {
+    background-image: url(../images/hoe.png);
+    background-size: 100%;
+    background-position: 50% 50%;
+}
+
+.cell-weapon-Pickaxe {
+    background-image: url(../images/pickaxe.png);
+    background-size: 100%;
+    background-position: 50% 50%;
+}
+
+.cell-weapon-Sword {
+    background-image: url(../images/sword.png);
+    background-size: 100%;
+    background-position: 50% 50%;
+}
+
+.cell-movement {
+    background-color: navajowhite;
+    opacity: 50%;
+}
+
+.cell {
+    display: inline-block;
+    border: solid #000000 1px;
+}
+
+
+/*#infoPlayer1 {
+    width: 200px;
+    height: 140px;
+    margin-left: 0px;
+    margin-top: 14px;
+}
+
+#infoPlayer2 {
+    width: 200px;
+    height: 140px;
+    margin-right: 0px;
+    margin-top: 14px;
+}*/

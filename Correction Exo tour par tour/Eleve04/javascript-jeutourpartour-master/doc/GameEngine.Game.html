@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Game</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: Game</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="GameEngine.html">GameEngine</a>.</span>Game</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+
+    <h4 class="name" id="Game"><span class="type-signature"></span>new Game<span class="signature">(boardWidth, boardHeight)</span><span class="type-signature"> &rarr; {<a href="Game.html">Game</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Représente une partie lancée dans le jeu.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>boardWidth</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">La valeur du nombre de ligne dans le plateau du jeu</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>boardHeight</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">La valeur du nombe de colonne dans le plateau du jeu</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>difficulty</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">La difficulté de la partie</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>board</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Board.html">Board</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">creation d'un nouvel objet Board en fonction de boardWith et boardHeight</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>baseWeapons</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="Weapon.html">Weapon</a>></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Liste les armes par défault des deux joueurs</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>bonusWeapons</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="Weapon.html">Weapon</a>></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Liste de nouveau objets Weapon pour les armes bonus</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>weapons</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="Weapon.html">Weapon</a>></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Liste toutes les armes de la partie</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>players</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="Player.html">Player</a>></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Liste les joueurs de la partie</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>currentPlayer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Player.html">Player</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Le joueur à qui c'est le tour de joueur</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>continueMovementPhase</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Permet de définir si le tour du joueur continue</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="game_game-engine.js.html">game/game-engine.js</a>, <a href="game_game-engine.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Game.html">Game</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Board.html">Board</a></li><li><a href="Cell.html">Cell</a></li><li><a href="consoleGame.html">consoleGame</a></li><li><a href="GameEngine.Game.html">Game</a></li><li><a href="generator.html">generator</a></li><li><a href="Page.html">Page</a></li><li><a href="Player.html">Player</a></li><li><a href="playerinfo.html">playerinfo</a></li><li><a href="Weapon.html">Weapon</a></li></ul><h3>Namespaces</h3><ul><li><a href="GameController.html">GameController</a></li><li><a href="GameDisplay.html">GameDisplay</a></li><li><a href="GameEngine.html">GameEngine</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sat Jan 28 2017 17:59:05 GMT+0100 (Paris, Madrid)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

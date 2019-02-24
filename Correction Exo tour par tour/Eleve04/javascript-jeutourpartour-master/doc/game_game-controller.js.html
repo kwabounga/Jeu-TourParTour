@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: game/game-controller.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: game/game-controller.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>//JavaScript Document
+/**
+ * @author &lt;a href="https://encrypt.to/0x2191C1D8">LHUILLERY Matthieu&lt;/a> 
+ */
+
+/** @namespace GameController */
+
+// probablement pas là où il faudrait
+var currentGame;
+var currentpage = new Page();
+var generatorCSS = new generator();
+var GameController = {};
+
+
+/** @function playGame
+ * @memberof GameController
+ * @desc Lancer une nouvelle partie 
+ * @param {string} difficulty - La difficulté selectionnée
+ * @see displayGame
+ * @see Game#nextMovementTurn
+ */
+function playGame(difficulty) {
+    
+    //debug console
+    console.log("%cfunction playGame(" + difficulty + ")", styleFunction);
+
+    // définie la taille du plateau de jeu par rapport au niveau de difficulté selectionné
+    var GameSize = (function (difficulty) {
+        if (difficulty === "easy") {
+            console.log("%ceasy -> GameSize = 12x12", styleInfo);
+            return 12;
+        } else if (difficulty === "medium") {
+            console.log("%cmedium -> GameSize = 10x10", styleInfo);
+            return 10;
+        } else if (difficulty === "hard") {
+            console.log("%chard -> GameSize = 8x8", styleInfo);
+            return 8;
+        }
+    })(difficulty);
+
+    currentGame = new Game(GameSize, GameSize); // création d'une nouvelle partie    
+    displayGame(currentGame, difficulty); // affichage de la nouvelle partie
+
+    // lancement du prochain tour
+    currentGame.nextMovementTurn();
+}
+
+// ##############################################################################
+
+/** @function setupMovementOptions
+ * @memberof GameController
+ * @desc Activer les mouvements possibles sur le plateau 
+ * @param movementOptions
+ * @see toggleMovement
+ * @see currentMovements
+ * @returns {function}
+ */
+function setupMovementOptions(movementOptions) {
+    //debug console
+    console.log("%cfunction setupMovementOptions()", styleFunction);
+
+    // currentMovements représente la liste des positions accessibles pour le joueur durant ce tour de jeu
+    currentMovements = movementOptions;
+    for (option in currentMovements) {
+        // pour chaque position dans la liste des positions, selectionner la cellule par rapport à son ID
+        var $cellMov = $("#cell-" + currentMovements[option][0] + "-" + currentMovements[option][1]);
+        // et lui créer une fonction click()...
+        $cellMov.bind("click", {
+            row: currentMovements[option][0],
+            col: currentMovements[option][1]
+        }, currentGame.makeMovementTurn);
+        // 
+        toggleMovement(currentMovements[option]);
+
+    }
+}
+
+// ##############################################################################
+
+/** @function unsetMovementOptions
+ * @memberof GameController
+ * @desc Désactiver les mouvements possibles sur le plateau 
+ * @param movementOptions
+ * @return {function}
+ * @see toggleMovement
+ * @see currentMovements
+ */
+function unsetMovementOptions(movementOptions) {
+
+    //debug console
+    console.log('%cfunction unsetMovementOptions()', styleFunction);
+
+    for (option in currentMovements) {
+        //
+        var $cellMov = $("#cell-" + currentMovements[option][0] + "-" + currentMovements[option][1]);
+        //
+        $cellMov.unbind("click");
+        //
+        toggleMovement(currentMovements[option]);
+    }
+    movementOptions = null;
+}
+
+// ##############################################################################
+
+/** @function setupCombatOptions
+ * @memberof GameController
+ * @desc Activer les options de combat pour le joueur
+ * @see Game#makeCombatTurn
+ * @return {function}
+ */
+function setupCombatOptions() {
+
+    //debug console
+    console.log("%cfunction setupCombatOptions()", styleFunction);
+    $("#button_attack").bind("click", {
+        option: "atk"
+    }, currentGame.makeCombatTurn);
+    $("#button_defend").bind("click", {
+        option: "def"
+    }, currentGame.makeCombatTurn);
+}
+
+// ##############################################################################
+
+/** @function unsetCombatOptions 
+ * @memberof GameController
+ * @desc Désactiver les options de combat pour le joueur
+ * @returns {function}
+ */
+function unsetCombatOptions() {
+
+    //debug console
+    console.log("%cfunction unsetCombatOptions()", styleFunction);
+
+    $("#button_attack").unbind("click");
+    $("#button_defend").unbind("click");
+}
+
+// ##############################################################################
+
+/** @function setDifficulty
+ * @memberof GameController
+ * @desc Détermine la difficulté de la partie en fonction du choix selectionné
+ * @return {function} 
+ * @see playGame 
+ * @see Game
+ */
+function setDifficulty() {
+
+
+    $("#button_start_easy").click(
+        function () {
+            playGame("easy");
+        }
+    );
+    $("#button_start_medium").click(
+        function () {
+            playGame("medium");
+        }
+    );
+    $("#button_start_hard").click(
+        function () {
+            playGame("hard");
+        }
+    );
+}
+
+// ##############################################################################
+
+/* La fonction playGame() est appelé lorsque un clic est
+ * détecté sur le bouton avec l'attribut name="playGame"
+ * à partir du moment où le document html est entiérement chargé
+ */
+
+$(document).ready(function () {
+    currentpage.display();
+    setDifficulty();
+});
+
+// ##############################################################################</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Board.html">Board</a></li><li><a href="Cell.html">Cell</a></li><li><a href="consoleGame.html">consoleGame</a></li><li><a href="GameEngine.Game.html">Game</a></li><li><a href="generator.html">generator</a></li><li><a href="Page.html">Page</a></li><li><a href="Player.html">Player</a></li><li><a href="playerinfo.html">playerinfo</a></li><li><a href="Weapon.html">Weapon</a></li></ul><h3>Namespaces</h3><ul><li><a href="GameController.html">GameController</a></li><li><a href="GameDisplay.html">GameDisplay</a></li><li><a href="GameEngine.html">GameEngine</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sat Jan 28 2017 17:59:05 GMT+0100 (Paris, Madrid)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

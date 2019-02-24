@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: classes/console.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: classes/console.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>//JavaScript Document
+/**
+ * @author &lt;a href="https://encrypt.to/0x2191C1D8">LHUILLERY Matthieu&lt;/a> 
+ */
+
+/** @constructor consoleGame
+ * @return {consoleGame} 
+ * 
+ */
+function consoleGame() {
+
+    /** @name consoleGame#$boardcontrols 
+     * @type {JQuery}
+     */
+    var $boardcontrols = $("#board_controls");
+
+    /** @name consoleGame#$game_console
+     * @type {JQuery}
+     */
+    var $game_console = $("&lt;div>").attr("id", "game-console");
+    $game_console.addClass("col l12 m12");
+    $game_console.css({
+        'border': "5px solid #5cb85c",
+        'overflow': 'auto',
+        'height': "18.5vw"
+    });
+    $info_console = $("&lt;div>").attr("id", "infoGame").addClass("row flow-text");
+    $info_console.css({
+        'margin': 'auto'
+    });
+
+    /** @name consoleGame#$rowControle
+     * @type {JQuery}
+     */
+    var $rowControle = $('&lt;div>');
+    $rowControle.addClass("row").attr("id", "gameConsoleRow")
+    $info_console.appendTo($game_console);
+    $game_console.appendTo($rowControle);
+    $rowControle.prependTo($boardcontrols);
+
+    // ##############################################################################
+
+    /** @method consoleGame#display
+     * @return {function}
+     */
+    this.display = function () {
+        $rowControle.prependTo('#board_controls');
+    };
+
+    // ##############################################################################
+
+    /** @method consoleGame#showmsg 
+     * @desc Afficher les logs de la partie
+     * @param {string} message
+     * @param {Object} weapon
+     * @param {string} player
+     * @param {string} speed
+     * @return {function}
+     */
+    this.showmsg = function (message, player, speed, weapon) {
+
+        //console log
+        console.log("%cfunction displayConsole(" + message + "," + player + "," + speed + "," + weapon + ")", styleFunction);
+
+        var message = message;
+        // messages pour la console InGame
+        var msg_start, msg_bienvenue = "Bienvenue !&lt;br>Choisissez un niveau de difficulté !";
+
+
+        var $infoconsole = $("#infoGame");
+        var $gameconsole = $("#game-console");
+
+        switch (message) {
+            case "msg_bienvenue":
+                $infoconsole.html(msg_bienvenue);
+                autoScrollConsole($gameconsole);
+                break;
+            case "msg_start":
+                msg_start = "Niveau de difficulté selectionné: " + currentGame.difficulty + "&lt;br>Une nouvelle partie est lancée !";
+                $infoconsole.html("");
+                $("&lt;div>").html(msg_start).appendTo($infoconsole);
+                autoScrollConsole($gameconsole);
+                break;
+            case "msg_turn_mov":
+                var msg_turn_mov = "C'est au tour de " + player + " de jouer !";
+                $("&lt;div>").html(msg_turn_mov).appendTo($infoconsole);
+                autoScrollConsole($gameconsole, "fast");
+                break;
+            case "msg_mov1":
+                var msg_mov1 = player + " s'est déplacé de 1 case";
+                $("&lt;div>").html(msg_mov1).appendTo($infoconsole);
+                autoScrollConsole($gameconsole, "fast");
+                break;
+            case "msg_mov2":
+                var msg_mov2 = player + " s'est déplacé de 2 cases";
+                $("&lt;div>").html(msg_mov2).appendTo($infoconsole);
+                autoScrollConsole($gameconsole, "fast");
+                break;
+            case "msg_mov3":
+                var msg_mov3 = player + " s'est déplacé de 3 cases";
+                $("&lt;div>").html(msg_mov3).appendTo($infoconsole);
+                autoScrollConsole($gameconsole, "fast");
+                break;
+            case "msg_turn_combat":
+                var msg_turn_combat = "C'est au tour de " + player + " de combattre !";
+                $("&lt;div>").html(msg_turn_combat).appendTo($infoconsole);
+                autoScrollConsole($gameconsole, "fast");
+                break;
+            case "msg_switch":
+                var msg_switch = player + " prend possession d'une nouvelle arme: " + weapon;
+                $("&lt;div>").html(msg_switch).appendTo($infoconsole);
+                autoScrollConsole($gameconsole, "fast");
+                break;
+            case "msg_end":
+                var msg_end = player + " gagne la partie ! Bravo&lt;br>#### GAME OVER ####&lt;br>Press Restart !";
+                $("&lt;div>").html(msg_end).appendTo($infoconsole);
+                autoScrollConsole($gameconsole, "slow");
+                break;
+            case "msg_def":
+                var msg_def = player + " lève son bouclier et retrouve 10 HP&lt;br>Les dommages qu'il subira seront réduits !";
+                $("&lt;div>").html(msg_def).appendTo($infoconsole);
+                autoScrollConsole($gameconsole, "fast");
+                break;
+            case "msg_atk":
+                if (currentGame.getNextPlayer().defensePosture === true) {
+                    var msg_atk = "Blam! le bouclier encaisse !&lt;br>" + player + " fait perdre " + (currentGame.currentPlayer.weapon.damages / 2) + " HP à son adversaire ! ";
+                    $("&lt;div>").html(msg_atk).appendTo($infoconsole);
+                    autoScrollConsole($gameconsole, "fast");
+                    break;
+                } else {
+                    var msg_atk = "Paf ! en pleine face !&lt;br>" + player + " fait perdre  " + currentGame.currentPlayer.weapon.damages + " HP à son adversaire ! ";
+                    $("&lt;div>").html(msg_atk).appendTo($infoconsole);
+                    autoScrollConsole($gameconsole, "fast");
+                    break;
+                }
+            default:
+                $infoconsole.html('');
+        }
+    };
+
+    // ##############################################################################
+
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Board.html">Board</a></li><li><a href="Cell.html">Cell</a></li><li><a href="consoleGame.html">consoleGame</a></li><li><a href="GameEngine.Game.html">Game</a></li><li><a href="generator.html">generator</a></li><li><a href="Page.html">Page</a></li><li><a href="Player.html">Player</a></li><li><a href="playerinfo.html">playerinfo</a></li><li><a href="Weapon.html">Weapon</a></li></ul><h3>Namespaces</h3><ul><li><a href="GameController.html">GameController</a></li><li><a href="GameDisplay.html">GameDisplay</a></li><li><a href="GameEngine.html">GameEngine</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sat Jan 28 2017 17:59:04 GMT+0100 (Paris, Madrid)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

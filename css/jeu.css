@@ -1,0 +1,487 @@
+.output {
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  height: 100px;
+  color: #3de81a;
+  background-color: #000000;
+  overflow: auto;
+  font-family: Courier, Liberation, sans-serif;
+}
+
+.alert {
+  display: block;
+  position: absolute;
+  top: 300px;
+  right: 100px;
+  left: 100px;
+  height: 100px;
+  width: 800px;
+  font-family: 'Upheaval TT (BRK)', sans-serif;
+  font-size: 70pt;
+  text-align: center;
+  text-shadow: #ffffff 2px 2px, #ffffff -2px 2px, #ffffff -2px -2px, #ffffff 2px -2px;
+}
+
+@font-face {
+  font-family: 'Upheaval TT (BRK)';
+  src: url('../fonts/UpheavalTT-BRK-.woff2') format('woff2'),
+    url('../fonts/UpheavalTT-BRK-.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: '8BITWONDER';
+  src: url('../fonts/8BITWONDERNominal.woff2') format('woff2'),
+    url('../fonts/8BITWONDERNominal.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Extrude';
+  src: url('../fonts/Extrude.woff2') format('woff2'),
+    url('../fonts/Extrude.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TakeCover';
+  src: url('../fonts/TakeCover.woff2') format('woff2'),
+    url('../fonts/TakeCover.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.overAll {
+  z-index: 1000;
+}
+
+.background {
+  zoom: 70%;
+  display: flex;
+}
+
+.board {
+  display: block;
+  width: 1000px;
+  height: 1000px;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  background-image: url("../img/plateau.png");
+}
+
+.invisible {
+  display: none;
+}
+
+.line {
+  display: flex;
+}
+
+.tile {
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  display: block;
+  width: 100px;
+  height: 100px;
+
+}
+.tileHighLight{
+  outline: 1px solid white;
+}
+.innerTile {
+  display: block;
+  position: absolute;
+}
+
+.yellow {
+  color: rgb(96, 89, 3);
+}
+
+.orange {
+  color: rgb(89, 60, 4);
+}
+
+.title {
+  /* padding: px; */
+  font-family: 'Extrude', arial;
+  font-size: 55pt;
+  color: rgb(0, 0, 0);
+  background-color: rgb(29, 255, 1);
+}
+
+#restart {
+  margin-top: 100px;
+  transform: scale(2);
+}
+#visualWinner {
+  margin-top: 90px;
+  width: auto;
+  height: 500px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.name{
+  background-color: rgb(191, 157, 53);
+}
+.attainable01 {
+  cursor:pointer;
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/range01.png");
+}
+
+.attainable02 {
+  cursor:pointer;
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/range02.png");
+}
+
+.bloc {
+  width: 150px;
+}
+
+.UI {
+
+  font-family: 'Upheaval TT (BRK)', arial;
+  font-size: 19pt;
+  color: rgb(26, 0, 0);
+  background-color: rgb(185, 177, 162);
+
+}
+.highlighted{
+  padding-left: 6px;
+  text-shadow: #ffffff 2px 2px, #ffffff -2px 2px, #ffffff -2px -2px, #ffffff 2px -2px;
+}
+.XL {
+  font-size: 24pt;
+}
+
+.currentBlocUI {
+  background-color: rgb(208, 183, 136);
+}
+.weaponImg {
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/knife.png");
+}
+.weaponLayer2 {
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/kalash.png");
+}
+
+.weaponLayer3 {
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/pompe.png");
+}
+
+.weaponLayer4 {
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/grenade.png");
+}
+
+.weaponLayer5 {
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/rocket.png");
+}
+
+.grass {
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/grass03.gif");
+}
+
+.car {
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/car.png");
+}
+
+.barak {
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/barak.png");
+}
+
+.tree {
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/tree.png");
+}
+
+.water {
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/water.png");
+}
+
+.wood {
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/wood.png");
+}
+
+.rock {
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/rock.png");
+}
+
+.metal {
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/metal.png");
+}
+
+#visualPlayer1 {
+  background-size: cover;
+  width: 500px;
+  height: 500px;
+}
+
+#visualPlayer2 {
+  background-size: cover;
+  width: 500px;
+  height: 500px;
+}
+
+.perso1 {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/100px/comando_run.gif")
+}
+
+.perso1Knife {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/100px/comando_slice.gif")
+}
+
+.perso1Kalash {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/100px/comando_shoot_kalash.gif")
+}
+
+.perso1Pompe {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/100px/comando_shoot_pompe.gif")
+}
+
+.perso1Rocket {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/100px/comando_shoot_rocket.gif")
+}
+
+.perso1Grenade {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/100px/comando_shoot_grenade.gif")
+}
+
+.perso2 {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/100px/rambo_run.gif")
+}
+
+.perso2Kalash {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/100px/rambo_shoot_kalash.gif")
+}
+
+.perso2Pompe {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/100px/rambo_shoot_pompe.gif")
+}
+
+.perso2Rocket {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/100px/rambo_shoot_rocket.gif")
+}
+
+.perso2Grenade {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/100px/rambo_shoot_grenade.gif")
+}
+
+.perso2Knife {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/100px/rambo_slice.gif")
+}
+
+.back {
+  transform: scaleX(-1);
+}
+
+.XXL {
+  transform: scale(4);
+}
+
+.leftDir {
+  transform: rotate(-90deg);
+}
+
+.rightDir {
+  transform: rotate(90deg);
+}
+
+.upDir {
+  transform: rotate(0deg);
+}
+
+.downDir {
+  transform: rotate(180deg);
+}
+
+/*//////////////////////////////// SECOND PART ////////////////////////////////*/
+.waitForFight {
+  filter: grayscale(80%);
+  pointer-events: none;
+  cursor: default;
+}
+
+#finalPanel {
+  /* background-color: rgb(168, 161, 134); */
+  background-image: url("../img/ring.png");
+  width: 1000px;
+  height: 1000px;
+  outline: 1px solid black;
+  /* width: 1000px; */
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#ring {
+  width: 1000px;
+  height: 1000px;
+  outline: 1px solid black;
+  /* background-color: rgb(123, 130, 111); */
+  background-image: url("../img/ring.png");
+}
+
+#title {
+  width: auto;
+  font-family: 'Upheaval TT (BRK)', sans-serif;
+  font-size: 70pt;
+  text-shadow: #ffffff 2px 2px, #ffffff -2px 2px, #ffffff -2px -2px, #ffffff 2px -2px;
+}
+
+#fight {
+  /* margin: 100px; */
+  padding-top: 50px;
+  width: 1000px;
+}
+
+.fightPersoWin, #fightPersoWin {
+  width: 400px;
+  height: 400px;
+}
+
+.fightPerso01, #pictPerso01 {
+  width: 500px;
+  height: 500px;
+}
+
+.fightPerso02, #pictPerso02 {
+  width: 500px;
+  height: 500px;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.flex {
+  display: flex;
+}
+
+.center {
+  vertical-align: middle;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#action-player1, #action-player2 {
+  width: 400px;
+}
+
+#action {
+  width: 800px;
+  padding-top: 150px;
+}
+
+#fighttest {
+  padding-left: 75px;
+  padding-right: 75px;
+  display: inline;
+  background-color: rgb(51, 56, 106);
+  height: 300px;
+}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.attack {
+  background-color: #da2100;
+}
+
+.userChoice {
+  border: solid;
+  width: 400px;
+  padding: 10px;
+  font-family: freedom_fighter_condensedCn, arial;
+  font-size: 20pt;
+  color: rgb(169, 176, 168);
+  border-color: rgb(7, 2, 69)
+}

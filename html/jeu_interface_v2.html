@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Jeu Tour par Tour</title>
+  <link rel="stylesheet" href="../css/jeu.css">
+</head>
+
+<body>
+  <!-- game board -->
+  <div id="background" class="background">
+    <!-- game alerts -->
+    <div id="alert" class="alert"></div>
+    <div id="board" class="board">
+      <div class="line">
+        <div class="tile">
+          <div class="innerTile player"></div>
+          <div class="innerTile attainable"></div>
+          <div class="innerTile weapons"></div>
+          <div class="innerTile obstacle"></div>
+        </div>
+      </div>
+    </div>
+    <!--game fight: second part of the game -->
+    <div id="ring" class="invisible">
+      <div id="title" class="center">Death Battle</div>
+      <div id="fight" class="flex center">
+        <div id="visualPlayer1" class="fightPerso01  "></div>
+        <div id="visualPlayer2" class="fightPerso02  back "></div>
+      </div>
+      <div id="action" class="block center">
+        <div class="flex">
+          <div id="action-player1" class="action UI XL">
+            <div class="name highlighted">Charles</div>
+            <div class="attack button">Attaquer</div>
+            <div class="defend button">Se défendre</div>
+          </div>
+          <div id="action-player2" class="action UI XL">
+            <div class="name highlighted">Roger</div>
+            <div class="attack button">Attaquer</div>
+            <div class="defend button">Se défendre</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- final panel  -->
+    <div id="finalPanel" class="invisible center">
+      <div class="title">Player One Win!</div>
+      <div id="visualWinner"></div>
+      <div id="restart" class="button UI XL attack">restart</div>
+    </div>
+    <!-- game informations  -->
+    <div id="informations">
+      <div id="gameName" class="bloc UI XL center">Game Infos</div>
+      <div id="infoPlayer1" class="bloc UI currentBlocUI">
+        <div class="name highlighted">Charles</div>
+        <div class="life highlighted">Life: 100</div>
+        <div class="defend highlighted">Defend: 100</div>
+        <div class="attack highlighted">Attack: 100</div>
+        <div class="weapon highlighted">Weapon</div>
+        <div class="weaponImg"></div>
+      </div>
+      <div id="infoPlayer2" class="bloc UI">
+        <div class="name highlighted">Roger</div>
+        <div class="life highlighted">Life: 100</div>
+        <div class="defend highlighted">Defend: 100</div>
+        <div class="attack highlighted">Attack: 100</div>
+        <div class="weapon highlighted">Weapon</div>
+        <div class="weaponImg"></div>
+      </div>
+    </div>
+  </div>
+  <!-- sounds  -->
+  <audio class="audio" id="ambiance" src="../sounds/ambiance.wav"></audio>
+  <audio class="audio" id="kalash" src="../sounds/kalash.wav"></audio>
+  <audio class="audio" id="pompe" src="../sounds/pompe.wav"></audio>
+  <audio class="audio" id="grenade" src="../sounds/grenade.wav"></audio>
+  <audio class="audio" id="rocket" src="../sounds/rocket.wav"></audio>
+  <audio class="audio" id="reload_kalash" src="../sounds/reload_kalash.wav"></audio>
+  <audio class="audio" id="reload_pompe" src="../sounds/reload_pompe.wav"></audio>
+  <audio class="audio" id="reload_grenade" src="../sounds/reload_grenade.wav"></audio>
+  <audio class="audio" id="reload_rocket" src="../sounds/reload_rocket.wav"></audio>
+  <audio class="audio" id="knife" src="../sounds/knife.wav"></audio>
+  <audio class="audio" id="steps" src="../sounds/steps.mp3"></audio>
+  <audio class="audio" id="defence" src="../sounds/impact.wav"></audio>
+  <!-- log output -->
+  <div class="output" id="output"></div>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+  <!-- Game scripts -->
+  <!-- tools.js: debug and Maths functions -->
+  <script src="../js/tools.js"></script>
+  <!-- soundscontrols.js:  sounds fx and music loop control -->
+  <script src="../js/soundscontrols.js"></script>
+  <!-- alertsmanager.js:  to display a message  -->
+  <script src="../js/alertsmanager.js"></script>
+  <!-- eventsmanager.js: manage board click events -->
+  <script src="../js/eventsmanager.js"></script>
+  <!-- boardmanager.js: game board creation and object board -->
+  <script src="../js/boardmanager.js"></script>
+  <!-- player.js: object player model -->
+  <script src="../js/player.js"></script>
+  <!-- updater.js: somes useful (useless?) functions to access divs -->
+  <script src="../js/updater.js"></script>
+  <!-- weapons.js: object weapon -->
+  <script src="../js/weapon.js"></script>
+  <!-- helpers.js: Games Helpers -->
+  <script src="../js/helpers.js"></script>
+  <!-- jeu.js: game core -->
+  <!-- GAME START HERE -->
+  <script src="../js/jeu.js"></script>
+  <script language="javascript">
+    lang = 'fr';
+    if (lang = 'fr') {
+      stringLife = "Vie : ";
+    }
+    else {
+      stringLife = "Life: ";
+    }
+  </script>
+</body>
+
+</html>

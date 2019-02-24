@@ -1,0 +1,193 @@
+body 
+{
+	background-image: url('../img/background.jpg');
+	background-size: cover;
+}
+
+header 
+{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	vertical-align: middle;
+	}
+
+h1 
+{
+	text-align: center;
+	width: auto;
+	height: auto;
+	font-size: 1.5em;
+	vertical-align: center;
+	z-index: 5;
+	color: white;
+}
+#map 
+{
+	width: 1000px;
+	border: 2px black solid;
+	margin: auto;
+	position: relative;
+	z-index: 3;
+}
+
+#perso1 
+{
+	position: absolute;
+	z-index: 2;
+	height: 100px;
+	margin-left: 20px; 
+}
+
+#perso2 
+{
+	position: absolute;
+	margin-left: 15px; 
+	z-index: 2;
+	height: 100px;
+}
+
+.casevideClass 
+{
+	box-sizing: border-box;
+	font-size: 0;
+	margin: 0;
+	padding: 0;
+	width: 100px;
+	height: 100px;
+	border: 1px black solid;
+	float: left;
+	background: white;
+	z-index: 1;
+}
+
+.blockClass 
+{
+	box-sizing: border-box;
+	font-size: 0;
+	margin: 0;
+	padding: 0;
+	width: 100px;
+	height: 100px;
+	border: 1px white solid;
+	float: left;
+	background-image: url('../img/bloc.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.arme1Class 
+{
+	box-sizing: border-box;
+	font-size: 0;
+	margin: 0;
+	padding: 0;
+	width: 100px;
+	height: 100px;
+	float: left;
+	border: 1px black solid;
+	background-image: url('../img/arme1.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	
+}
+
+.arme2Class 
+{
+	box-sizing: border-box;
+	font-size: 0;
+	margin: 0;
+	padding: 0;
+	width: 100px;
+	height: 100px;
+	border: 1px black solid;
+	float: left;
+	background-image: url('../img/arme2.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.arme3Class 
+{
+	box-sizing: border-box;
+	font-size: 0;
+	margin: 0;
+	padding: 0;
+	width: 100px;
+	height: 100px;
+	border: 1px black solid;
+	float: left;
+	background-image: url('../img/arme3.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.arme4Class 
+{
+	box-sizing: border-box;
+	font-size: 0;
+	margin: 0;
+	padding: 0;
+	width: 100px;
+	height: 100px;
+	border: 1px black solid;
+	float: left;
+	background-image: url('../img/arme4.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.joueurClass 
+{
+	z-index: 4;
+	width: 10%;
+	height: 60%;
+	margin: auto;
+  	/*marge extérieure*/
+  	padding: 1%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+  	background-color: white;
+  	border: 1px black solid;
+  	position: fixed;
+}
+
+#joueur1 
+{
+	bottom: 5px;
+	left: 5px;
+}
+
+#joueur2 
+{
+ 	bottom: 5px;
+ 	right: 5px;
+}
+
+.recapSanteClass 
+{
+	font-size: 0.8em;
+	color: black;
+	float: left;
+	z-index: 4;
+	position: relative;
+}
+
+.recapArmeClass 
+{
+	font-size: 0.8em;
+	color: black;
+	float: left;
+	z-index: 4;
+	position: relative;
+}
+
+.recapEtatClass 
+{
+	font-size: 0.8em;
+	color: black;
+	float: left;
+	z-index: 4;
+	position: relative;
+	}
